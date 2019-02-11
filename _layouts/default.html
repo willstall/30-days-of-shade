@@ -5,13 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% seo %}
-    <link rel="stylesheet" href="{{ "/assets/css/glslEditor.css?v=" | append: site.github.build_revision | relative_url }}>
-    <link rel="stylesheet" href="{{ "/assets/css/simple-grid.css?v=" | append: site.github.build_revision | relative_url }}>
+    <link rel="stylesheet" href={{ "/assets/css/glslEditor.css?v=" | append: site.github.build_revision | relative_url }}>
+    <link rel="stylesheet" href={{ "/assets/css/simple-grid.css?v=" | append: site.github.build_revision | relative_url }}>
     <link rel="stylesheet" href="/assets/css/styles.css">
 
-
-    <link type="text/css" rel="stylesheet" href="glslEditor.css">
-    <script type="text/javascript" src="glslEditor.js"></script>
+    <script type="text/javascript" src="{{ "/assets/js/glslEditor.js?v=" | append: site.github.build_revision | relative_url }}"></script>
 
   </head>
   <body>
