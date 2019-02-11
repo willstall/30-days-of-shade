@@ -1,2 +1,13 @@
 ## 30 Days of shade
-Below is a list of 30 shaders created in GLSL in 30 days in January 2019 in the pursuit of shits and giggles
+Below is a list of 30 shaders created in GLSL over the course of 30 days in January 2019 in the pursuit of shits and giggles
+
+<ul>
+{% for shader in site.data.shaders %}        
+    <li><a href={{ "/editor.html?file=" | append: shader.path|page.url|relative_url}}>{{ shader.name }}</a></li>
+
+    <video width="320" height="320" autoplay loop>
+        <source src={{ shader.movie | page.url |relative_url }} type="video/mp4">
+    </video>
+
+{% endfor %}
+</ul>
