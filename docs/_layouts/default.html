@@ -15,11 +15,11 @@
       {% endif %}
       -->
 
-      {{ content }}
+        {{ content }}
 
-    {% for file in site.data.files %}
-        <a href="">{{ file.name }}</a>
-    {% endfor %}
+        {% for shader in site.data.shaders %}
+            <a href="">{{ shader.name }}</a>
+        {% endfor %}
 
       {% if site.github.private != true and site.github.license %}
       <div class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray">
