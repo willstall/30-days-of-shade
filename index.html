@@ -9,7 +9,7 @@ title: 30 Days - GLSL Gallery
     <div class="row">
         
         {% for shader in site.data.shaders %}
-        <div class="col-6">
+        <div class="col-4">
             <a href={{ "/editor.html?file=" | append: shader.path|page.url|relative_url}}>{{ shader.name }}
 
                 <video width="320" height="320" autoplay loop>
@@ -18,6 +18,6 @@ title: 30 Days - GLSL Gallery
             </a>
         </div>        
         {% endfor %}
-        
+
     </div>
 </div>
