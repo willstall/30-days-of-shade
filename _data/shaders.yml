@@ -4,6 +4,8 @@
 
 - name: Simplex
   path: assets/shaders/002_simplex.frag
+  movie: assets/movies/test2.mp4
 
 - name: Fake Buffer
-  path: assets/shaders/003_fake_buffer.frag  
+  path: assets/shaders/003_fake_buffer.frag
+  movie: assets/movies/test2.mp4  
