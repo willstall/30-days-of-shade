@@ -1,9 +1,9 @@
 - name: Test
-  path: file.frag
-  movie: movies/test2.mp4
+  path: assets/shaders/file.frag
+  movie: assets/movies/test2.mp4
 
 - name: Simplex
-  path: /shaders/002_simplex.frag
+  path: assets/shaders/002_simplex.frag
 
 - name: Fake Buffer
-  path: shaders/003_fake_buffer.frag  
+  path: assets/shaders/003_fake_buffer.frag  
