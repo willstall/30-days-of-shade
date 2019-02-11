@@ -1,5 +1,8 @@
 - name: Test
   path: file.frag
 
-- name: Testing
-  path: file2.frag
+- name: Simplex
+  path: ../shaders/002_simplex.frag
+
+- name: Fake Buffer
+  path: https://github.com/willstall/30-days-of-shade/blob/master/shaders/003_fake_buffer.frag  
