@@ -17,11 +17,11 @@
 
         {{ content }}
 
-        {% for shader in site.data.shaders %}
         <ul>
-            <li><a href="{{ "/editor.html?file=" shader.path | append: relative_url }}">{{ shader.name }}</a></li>
-        </ul>
+        {% for shader in site.data.shaders %}        
+            <li><a href={{ "/editor.html?file=" | shader.path | page.url | relative_url }}">{{ shader.name }}</a></li>        
         {% endfor %}
+        </ul>
 
       {% if site.github.private != true and site.github.license %}
       <div class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray">
