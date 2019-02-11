@@ -18,7 +18,9 @@
         {{ content }}
 
         {% for shader in site.data.shaders %}
-            <a href="">{{ shader.name }}</a>
+        <ul>
+            <li><a href="">{{ shader.name }}</a></li>
+        </ul>
         {% endfor %}
 
       {% if site.github.private != true and site.github.license %}
