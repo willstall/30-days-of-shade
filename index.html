@@ -5,10 +5,10 @@ title: 30 Days - GLSL Gallery
 <h1>30 Days of shade</h1>
 <p>Below is a list of 30 shaders created in GLSL over the course of 30 days in January 2019 in the pursuit of shits and giggles</p>
 
-<div class="row">
+<div class="flex-row">
     
     {% for shader in site.data.shaders %}
-    <div class="col-4">
+    <div class="flex-column">
         <a href={{ "/editor.html?file=" | append: shader.path|page.url|relative_url}}>{{ shader.name }}
 
             <video width="320" height="320" autoplay loop>
