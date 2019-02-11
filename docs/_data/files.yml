@@ -1,0 +1,5 @@
+- name: Test
+  path: file.frag
+
+- name: Testing
+  path: file2.frag
