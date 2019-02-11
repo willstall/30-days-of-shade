@@ -1,5 +1,6 @@
 - name: Test
   path: file.frag
+  movie: movies/test2.mp4
 
 - name: Simplex
   path: /shaders/002_simplex.frag
