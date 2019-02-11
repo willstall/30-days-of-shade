@@ -19,7 +19,7 @@
 
         {% for shader in site.data.shaders %}
         <ul>
-            <li><a href="">{{ shader.name }}</a></li>
+            <li><a href="{{ "/editor.html?file=" shader.path | append: relative_url }}">{{ shader.name }}</a></li>
         </ul>
         {% endfor %}
 

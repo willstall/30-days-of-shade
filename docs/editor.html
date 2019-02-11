@@ -33,8 +33,11 @@
             fileDrops: true,
     		menu: true
     	});
-		
-		window.glslEditor.open("file.frag","new");
+        
+        const urlParams = new URLSearchParams(window.location.search);
+        const file = urlParams.get('file');
+
+		window.glslEditor.open(file,"");
 		// window.glslEditor.update();
 		console.log("hey");
 		
