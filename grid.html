@@ -1,31 +1,77 @@
 <html>
     <head>
-        <link rel="stylesheet" href="assets/css/simple-grid.css">
+            <link rel="stylesheet" href="assets/css/simple-grid.css">
+            <link rel="stylesheet" href="assets/css/reset.css">
+            <style>
+                *
+                {
+                    margin:0;
+                    padding:0;
+                }
+
+                div
+                {
+                    border: solid 1px red;
+                }
+
+                .container
+                {
+                    width: 100%;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+
+                .left {
+                    text-align: left;
+                }
+
+                .right {
+                    text-align: right;
+                }
+
+                .center {
+                    text-align: center;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+
+                .shader
+                {
+                    min-width: 320px;
+                    min-height: 320px;
+                    display: inline-block;
+                }
+                .img
+                {
+                    width:100%;
+                    height:100%;
+                }
+                #base
+                {
+                    /* min-width:960px; */
+                }
+            </style>
+
     </head>
     <body>
-            <div class="container">
-                <div class="row">
-                    <div class="col-6">
-                            <p>hi</p>
-                    <!-- This content will take up 3/12 (or 1/4) of the container -->
-                    </div>
-                    <div class="col-6">
-                            <p>hi</p>
-                    <!-- This content will take up 3/12 (or 1/4) of the container -->
-                    </div>
-                    <div class="col-6">
-                            <p>hi</p>
-                    <!-- This content will take up 6/12 (or 1/2) of the container -->
-                    </div>
-                    <div class="col-6">
-                            <p>hi</p>
-                        <!-- This content will take up 6/12 (or 1/2) of the container -->
-                    </div>
-                    <div class="col-6">
-                            <p>hi</p>
-                        <!-- This content will take up 6/12 (or 1/2) of the container -->
-                    </div>                                                
-                </div>
+
+        <div id="base" class="container">                       
+            <div id="copy" class="shader center">
+                <div>Title</div>
+                <div><a class="img" href="editor.html?file=assets/shaders/002_simplex.frag"></a><img src="assets/imgs/placeholder.png" /></a></div>
             </div>
+        </div>
+
+        <script>
+            // create a bunch of copies of our base element to help styling
+            let container = document.querySelector("#base");
+            let copy = document.querySelector("#copy");
+            let copies = 31;
+
+            for(let i = 0; i < copies; i++)
+            {
+                container.prepend(copy.cloneNode(true));
+            }
+        </script>        
     </body>
 </html>
