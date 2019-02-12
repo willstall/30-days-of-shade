@@ -40,13 +40,18 @@
                     display: grid;
                     /* grid-template-columns: 320px 320px 320px; */
                     grid-template-columns: repeat(auto-fill, minmax(320px,0fr));
+                    justify-content: space-evenly;
+                    /* justify-items: center; */
+                    /* align-items: stretch; */
                     /* grid-template-columns: repeat(auto-fill, minmax(320px,auto)); */
                 }
                 .grid-item
                 {
+                    /* justify-self: center; */
                     /* padding: 20px; */
-                    width:320px;
-                    height:320px;
+                    /* width:320px; */
+                    /* height:320px; */
+                    /* grid-area: content; */
                 }
                 .img
                 {
@@ -61,7 +66,7 @@
         <div id="base" class="container grid">                       
             <div id="copy" class="grid-item center">
                 <div>Title</div>
-                <div><a class="img" href="editor.html?file=assets/shaders/002_simplex.frag"></a><img src="assets/imgs/placeholder.png" /></a></div>
+                <div><a href="editor.html?file=assets/shaders/002_simplex.frag"></a><img class="img" src="assets/imgs/placeholder.png" /></a></div>
             </div>
         </div>
 
