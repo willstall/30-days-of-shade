@@ -4,33 +4,31 @@ title: 30 Days - GLSL Gallery
 ---
 <p>Below is a list of 30 shaders created in GLSL over the course of 30 days in January 2019 in the pursuit of shits and giggles</p>
 
+<div class="grid">
 
-<!-- <div class="flex-column">
-    <a href={{ "/editor.html?file=" | append: shader.path|page.url|relative_url}}>{{ shader.name }}
-
-        <video width="320" height="320" autoplay loop>
-            <source src={{ shader.movie | page.url |relative_url }} type="video/mp4">
-        </video>
-    </a>
-</div>     -->
-
-{% for shader in site.data.shaders %}
-<div id="copy" class="grid-item center spacing font-heavy">                
-    <div class="shader">
-        <div class="shader-hover img"><i class="fas fa-cog fa-5x"></i></div>
-        <a href={{ "/editor.html?file=" | append: shader.path|page.url|relative_url}}><img class="img" src="assets/imgs/placeholder.png" /></a>
-    </div>
-    <div class="shader-menu">
-        <div class="left"><h3>{{ shader.name }}</h3></div>
-        <div></div>
-        <div class="right">
-            <nav>
-                <a href="#"><i class="fas fa-file"></i></a>
-                <a href={{ "/editor.html?file=" | append: shader.path|page.url|relative_url}}><i class="fas fa-cog"></i></a>
-                <a href="#"><i class="fas fa-eye"></i></a>
-            </nav>
+    {% for shader in site.data.shaders %}
+    <div id="copy" class="grid-item center spacing font-heavy">                
+        <div class="shader">
+            <div class="shader-hover img"><i class="fas fa-cog fa-5x"></i></div>
+            <a href={{ "/editor.html?file=" | append: shader.path|page.url|relative_url}}>
+                <!-- <img class="img" src="assets/imgs/placeholder.png" /> -->
+                <video class="img" autoplay loop>
+                        <source src={{ shader.movie | page.url |relative_url }} type="video/mp4">
+                </video>
+            </a>
+        </div>
+        <div class="shader-menu">
+            <div class="left"><h3>{{ shader.name }}</h3></div>
+            <div></div>
+            <div class="right">
+                <nav>
+                    <a href="#"><i class="fas fa-file"></i></a>
+                    <a href={{ "/editor.html?file=" | append: shader.path|page.url|relative_url}}><i class="fas fa-cog"></i></a>
+                    <a href="#"><i class="fas fa-eye"></i></a>
+                </nav>
+            </div>
         </div>
     </div>
-</div>
+    {% endfor %}
 
-{% endfor %}
+</div>
