@@ -2,6 +2,7 @@
     <head>
             <link rel="stylesheet" href="assets/css/reset.css">
             <link rel="stylesheet" href="assets/css/font.css">
+            
             <!-- <link rel="stylesheet" href="assets/css/simple-grid.css"> -->
             <link rel="stylesheet" href="assets/css/all.css">
             <style>
@@ -9,14 +10,12 @@
                 {
                     margin:0;
                     padding:0;
-                    /* color:#222222; */
+                    color:#333333;
                 }
-
                 div
                 {
                     /* border: solid 1px red; */
                 }
-
                 .container
                 {
                     width: 100%;
@@ -27,8 +26,8 @@
 
                 .v_space
                 {
-                    padding-top: 20px;
-                    padding-bottom: 20px;
+                    padding-top: 10px;
+                    padding-bottom: 10px;
                 }
 
                 .left {
@@ -129,24 +128,56 @@
                 a
                 {
                     text-decoration: none;
-                    font-weight: 600;
+                    font-weight: 900;
                     color:#222222;
                 }   
                 a:hover
                 {
                     color:hotpink;
-                }                                  
+                }                         
+                .line
+                {
+                    background-color: #b6b6b6;
+                    height: 1px;
+                    width: 100%;
+                } 
+                
+                footer
+                {
+                    padding-top: 40px;
+                }
+                .fade a{
+                    opacity: .4;
+                    -webkit-transition: opacity 0.3s ease-out;  
+                    -moz-transition: opacity 0.3s ease-out;  
+                    -ms-transition: opacity 0.3s ease-out;  
+                    -o-transition: opacity 0.3s ease-out;  
+                        transition: opacity 0.3s ease-out;                       
+                }   
+                .fade a:hover{
+                    opacity: 1;
+                }
+                .menu
+                {
+                    display:grid;
+                    grid-template-columns: 400px 1fr 1fr;                    
+                    align-items: center;
+                }
             </style>
 
     </head>
     <body>
         <header class="container">
-            <div class="left spacing"><h1>Title</h1></div>
-            <!-- <div class="right"><h3>Title</h3></div> -->
+            <div class="menu">
+                <div class="left spacing font-light"><h1>30 Days of Shade</h1></div>
+                <div></div>
+                <div class="right spacing fade"><a href="#"><img style="width:34px;height:34px" src="assets/imgs/github-icon.png"/></a></div>
+            </div>
         </header> 
+        <div class="container spacing"><div class="line"></div></div>
         <main id="base" class="container grid v_space">
                     
-            <div id="copy" class="grid-item center spacing">                
+            <div id="copy" class="grid-item center spacing font-heavy">                
                 <div class="shader">
                     <div class="shader-hover img"><i class="fas fa-cog fa-5x"></i></div>
                     <a href="editor.html?file=assets/shaders/002_simplex.frag"><img class="img" src="assets/imgs/placeholder.png" /></a>
@@ -156,6 +187,7 @@
                     <div></div>
                     <div class="right">
                         <nav>
+                            <a href="#"><i class="fas fa-file"></i></a>
                             <a href="#"><i class="fas fa-cog"></i></a>
                             <a href="#"><i class="fas fa-eye"></i></a>
                         </nav>
@@ -164,7 +196,7 @@
             </div>
         </main>
         <footer class="container">
-                <div class="center spacing"><h4>Made for shits and gigs by <a href="http://www.willstall.com">willstall</a></h4></div>
+                <div class="center spacing"><h6>Made for shits and gigs by <a href="http://www.willstall.com">willstall</a></h6></div>
         </footer>  
 
         <script>
