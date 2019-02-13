@@ -8,14 +8,14 @@ title: 30 Days - GLSL Gallery
 
     {% for shader in site.data.shaders | reverse %}
     <div id="copy" class="grid-item center spacing font-heavy">                
-        <div class="shader">
-                <a href={{ "/editor.html?file=" | append: shader.path|page.url|relative_url}}>
-                    <div class="shader-hover img"><i class="fas fa-cog fa-5x"></i></div>
-                </a>
+        <div class="shader">                
+                <div class="shader-hover img"><i class="fas fa-cog fa-5x"></i></div>                
                 <!-- <img class="img" src="assets/imgs/placeholder.png" /> -->
+                <a href={{ "/editor.html?file=" | append: shader.path|page.url|relative_url}}>
                 <video class="img" autoplay loop>
                         <source src={{ shader.movie | page.url |relative_url }} type="video/mp4">
                 </video>
+                </a>
         </div>
         <div class="shader-menu">
             <div class="left"><h3>{{ shader.name }}</h3></div>
