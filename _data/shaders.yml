@@ -1,5 +1,5 @@
 - name: Test
-  path: assets/shaders/file.frag
+  path: assets/shaders/004_silexars.frag
   movie: assets/movies/test2.mp4
   github: https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/002_simplex.frag
 
