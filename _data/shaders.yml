@@ -2,13 +2,16 @@
   path: assets/shaders/004_silexars.frag
   movie: assets/movies/test2.mp4
   github: https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/002_simplex.frag
+  instagram: https://www.instagram.com/p/Bs8Hkg3jOLX/
 
 - name: Simplex
   path: assets/shaders/002_simplex.frag
   movie: assets/movies/test2.mp4
   github: https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/002_simplex.frag
+  instagram: https://www.instagram.com/p/Bs8Hkg3jOLX/
 
 - name: Fake Buffer
   path: assets/shaders/003_fake_buffer.frag
   movie: assets/movies/test2.mp4  
   github: https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/002_simplex.frag
+  instagram: https://www.instagram.com/p/Bs8Hkg3jOLX/
