@@ -1,3 +1,11 @@
+/*
+
+    daily: 011
+    author: Will Stallwood
+    insta: https://www.instagram.com/willstall/
+    
+*/
+
 #ifdef GL_ES
     precision mediump float;
 #endif

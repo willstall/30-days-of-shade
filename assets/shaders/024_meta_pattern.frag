@@ -1,7 +1,8 @@
 /*
 
-    author: Will Stallwood
     daily: 024
+    author: Will Stallwood
+    insta: https://www.instagram.com/willstall/
     
 */
 
