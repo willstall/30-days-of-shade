@@ -1,217 +1,186 @@
-- name: 001
+- name: .001
   path: assets/shaders/002_simplex.frag
   movie: assets/movies/test2.mp4
-  github: https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/002_simplex.frag
   instagram: https://www.instagram.com/p/BsHnbX3jHkj/
   twitter: https://twitter.com/willstall/status/1080324099820392449
 
-- name: 002
+- name: .002
   path: assets/shaders/002_simplex.frag
   movie: assets/movies/test2.mp4
-  github: https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/002_simplex.frag
   instagram: https://www.instagram.com/p/BsJE9QyD7aX/
   twitter: https://twitter.com/willstall/status/1080529734403059712
 
-- name: 003
+- name: .003
   path: assets/shaders/003_fake_buffer.frag
   movie: assets/movies/test2.mp4  
-  github: https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/002_simplex.frag
   instagram: https://www.instagram.com/p/BsMZnLzjV6Z/
   twitter: https://twitter.com/willstall/status/1080998020861358080
 
-- name: 004
+- name: .004
   path: assets/shaders/004_silexars.frag
   movie: assets/movies/test2.mp4  
-  github: https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/002_simplex.frag
   instagram: https://www.instagram.com/p/BsOkNClDWGS/
   twitter: https://twitter.com/willstall/status/1081302600845312001
 
-- name: 005
+- name: .005
   path: assets/shaders/005_deathstar.frag
   movie: assets/movies/test2.mp4  
-  github: https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/002_simplex.frag
   instagram: https://www.instagram.com/p/BsRaEMIDCxl/
   twitter: https://twitter.com/willstall/status/1081700592706306048
 
-- name: 006
+- name: .006
   path: assets/shaders/006_sdf_lighting.frag
   movie: assets/movies/test2.mp4  
-  github: https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/002_simplex.frag
   instagram: https://www.instagram.com/p/BsTGSUID20U/
   twitter: https://twitter.com/willstall/status/1081939183265034240
 
-- name: 007
+- name: .007
   path: assets/shaders/007_union.frag
   movie: assets/movies/test2.mp4  
-  github: https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/002_simplex.frag
   instagram: https://www.instagram.com/p/BsWCQzujpKA/
   twitter: https://twitter.com/willstall/status/1082352402391592960
 
-- name: 008
+- name: .008
   path: assets/shaders/008_sdf_shadows.frag
   movie: assets/movies/test2.mp4  
-  github: https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/002_simplex.frag
   instagram: https://www.instagram.com/p/BsYJIMXDf_d/
   twitter: https://twitter.com/willstall/status/1082650068736458752
 
-- name: 009
+- name: .009
   path: assets/shaders/009_tri_noise.frag
   movie: assets/movies/test2.mp4  
-  github: https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/002_simplex.frag
   instagram: https://www.instagram.com/p/BsarHq3jFBK/
   twitter: https://twitter.com/willstall/status/1083007763456970753
 
-- name: 010
+- name: .010
   path: assets/shaders/010_voronoi_meta.frag
   movie: assets/movies/test2.mp4  
-  github: https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/002_simplex.frag
   instagram: https://www.instagram.com/p/BsdRn6IjMtr/
   twitter: https://twitter.com/willstall/status/1083371364906610693
 
-- name: 011
+- name: .011
   path: assets/shaders/011_voronoi_island.frag
   movie: assets/movies/test2.mp4  
-  github: https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/002_simplex.frag
   instagram: https://www.instagram.com/p/BsfyIktDObx/
   twitter: https://twitter.com/willstall/status/1083724738336301056
 
-- name: 012
+- name: .012
   path: assets/shaders/012_circle_dip.frag
   movie: assets/movies/test2.mp4  
-  github: https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/002_simplex.frag
   instagram: https://www.instagram.com/p/BsixYLzDZtX/
   twitter: https://twitter.com/willstall/status/1084144410835734529
 
-- name: 013
+- name: .013
   path: assets/shaders/013_cross_fades.frag
   movie: assets/movies/test2.mp4  
-  github: https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/002_simplex.frag
   instagram: https://www.instagram.com/p/BskfmhrDSaL/
   twitter: https://twitter.com/willstall/status/1084386924784222209
 
-- name: 014
+- name: .014
   path: assets/shaders/014_popsicle_spin.frag
   movie: assets/movies/test2.mp4  
-  github: https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/002_simplex.frag
   instagram: https://www.instagram.com/p/Bsnlrl0DrCK/
   twitter: https://twitter.com/willstall/status/1084822708645437440
 
-- name: 015
+- name: .015
   path: assets/shaders/015_domain_repeat.frag
   movie: assets/movies/test2.mp4  
-  github: https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/002_simplex.frag
   instagram: https://www.instagram.com/p/BsqEsCcDO8M/
   twitter: https://twitter.com/willstall/status/1085172131170828288
 
-- name: 016
+- name: .016
   path: assets/shaders/016_log.frag
   movie: assets/movies/test2.mp4  
-  github: https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/002_simplex.frag
   instagram: https://www.instagram.com/p/Bsspia1DQji/
   twitter: https://twitter.com/willstall/status/1085536749852467200
 
-- name: 017
+- name: .017
   path: assets/shaders/017_ying_yang.frag
   movie: assets/movies/test2.mp4  
-  github: https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/002_simplex.frag
   instagram: https://www.instagram.com/p/BsvjRZkDT3X/
   twitter: https://twitter.com/willstall/status/1085943761258102786
 
-- name: 018
+- name: .018
   path: assets/shaders/018_diamond.frag
   movie: assets/movies/test2.mp4  
-  github: https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/002_simplex.frag
   instagram: https://www.instagram.com/p/Bsx0ZwJjfvO/
   twitter: https://twitter.com/willstall/status/1086263243440603137
 
-- name: 019
+- name: .019
   path: assets/shaders/019_circle.frag
   movie: assets/movies/test2.mp4  
-  github: https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/002_simplex.frag
   instagram: https://www.instagram.com/p/Bs00Br2DGun/
   twitter: https://twitter.com/willstall/status/1086683874644643840
 
-- name: 020
+- name: .020
   path: assets/shaders/020_zig_circle.frag
   movie: assets/movies/test2.mp4  
-  github: https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/002_simplex.frag
   instagram: https://www.instagram.com/p/Bs4W4CUDZIV/
   twitter: https://twitter.com/willstall/status/1087182960464461824
 
-- name: 021
+- name: .021
   path: assets/shaders/021_frantic_noise.frag
   movie: assets/movies/test2.mp4  
-  github: https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/002_simplex.frag
   instagram: https://www.instagram.com/p/Bs6fhq6DzLy/
   twitter: https://twitter.com/willstall/status/1087482939364044808
 
-- name: 022
+- name: .022
   path: assets/shaders/022_shake_shack.frag
   movie: assets/movies/test2.mp4  
-  github: https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/002_simplex.frag
   instagram: https://www.instagram.com/p/Bs8Hkg3jOLX/
   twitter: https://twitter.com/willstall/status/1087711821405044737
 
-- name: 023
+- name: .023
   path: assets/shaders/023_tri_buffer.frag
   movie: assets/movies/test2.mp4  
-  github: https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/002_simplex.frag
   instagram: https://www.instagram.com/p/Bs-0yjcjF_z/
   twitter: https://twitter.com/willstall/status/1088092626832769024
 
-- name: 024
+- name: .024
   path: assets/shaders/024_meta_pattern.frag
   movie: assets/movies/test2.mp4  
-  github: https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/002_simplex.frag
   instagram: https://www.instagram.com/p/BtBTwWbjCfp/
   twitter: https://twitter.com/willstall/status/1088442241176227841
 
-- name: 025
+- name: .025
   path: assets/shaders/025_polar_flower.frag
   movie: assets/movies/test2.mp4  
-  github: https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/002_simplex.frag
   instagram: https://www.instagram.com/p/BtERviMjClo/
   twitter: https://twitter.com/willstall/status/1088866447907061765
 
-- name: 026
+- name: .026
   path: assets/shaders/026_universe.frag
   movie: assets/movies/test2.mp4  
-  github: https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/002_simplex.frag
   instagram: https://www.instagram.com/p/BtGfQvfjUBQ/
   twitter: https://twitter.com/willstall/status/1089170893484511232
 
-- name: 027
+- name: .027
   path: assets/shaders/027_motif_meld.frag
   movie: assets/movies/test2.mp4  
-  github: https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/002_simplex.frag
   instagram: https://www.instagram.com/p/BtJVzlzDyfS/
   twitter: https://twitter.com/willstall/status/1089573240987631617
 
-- name: 028
+- name: .028
   path: assets/shaders/028_hex_reflect.frag
   movie: assets/movies/test2.mp4  
-  github: https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/002_simplex.frag
   instagram: https://www.instagram.com/p/BtLmOB5jc3i/
   twitter: https://twitter.com/willstall/status/1089891712208723968
 
-- name: 029
+- name: .029
   path: assets/shaders/029_x_loop.frag
   movie: assets/movies/test2.mp4  
-  github: https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/002_simplex.frag
   instagram: https://www.instagram.com/p/BtOMaACDQ09/
   twitter: https://twitter.com/willstall/status/1090256398372536320
 
-- name: 030
+- name: .030
   path: assets/shaders/030_daily_minimal_346.frag
   movie: assets/movies/test2.mp4  
-  github: https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/002_simplex.frag
   instagram: https://www.instagram.com/p/BtQ3PmFDgwJ/
   twitter: https://twitter.com/willstall/status/1090631290565595136
 
-- name: 031
+- name: .031
   path: assets/shaders/031_three_dot_one.frag
   movie: assets/movies/test2.mp4  
-  github: https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/002_simplex.frag
   instagram: https://www.instagram.com/p/BtT_0v6j1QW/
   twitter: https://twitter.com/willstall/status/1091073365954252801
 
