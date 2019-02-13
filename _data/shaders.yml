@@ -1,5 +1,5 @@
 - name: '.001'
-  path: assets/shaders/002_simplex.frag
+  path: assets/shaders/001_rehash.frag
   movie: assets/videos/001.mp4
   instagram: https://www.instagram.com/p/BsHnbX3jHkj/
   twitter: https://twitter.com/willstall/status/1080324099820392449
