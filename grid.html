@@ -7,6 +7,13 @@
             <!-- <link rel="stylesheet" href="assets/css/simple-grid.css"> -->
             <link rel="stylesheet" href="assets/css/all.css">
             <style>
+                @-webkit-keyframes rotation {
+                from {
+                        -webkit-transform: rotate(0deg);
+                }
+                to {
+                        -webkit-transform: rotate(359deg);
+                }}                
                 *
                 {
                     margin:0;
@@ -118,6 +125,10 @@
                     color:hotpink;
                 }
 
+                .shader_menu .img
+                {
+                    webkit-animation: rotation 2s infinite linear;                    
+                }
                 .shader-menu .fas:hover
                 {
                     color:hotpink;
