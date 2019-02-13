@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+    <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            {% seo %}
+            <link rel="stylesheet" href="assets/css/reset.css">
+            <link rel="stylesheet" href="assets/css/font.css">
+            
+            <!-- <link rel="stylesheet" href="assets/css/simple-grid.css"> -->
+            <link rel="stylesheet" href="assets/css/all.css">
+            <style>
+                *
+                {
+                    margin:0;
+                    padding:0;
+                    color:#333333;
+                }
+                div
+                {
+                    /* border: solid 1px red; */
+                }
+                .container
+                {
+                    width: 100%;
+                    max-width: 960px;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+
+                .v_space
+                {
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                }
+
+                .left {
+                    text-align: left;
+                }
+
+                .right {
+                    text-align: right;
+                }
+
+                .center {
+                    text-align: center;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+                .grid
+                {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fill, minmax(320px,0fr));
+                    /* grid-row-gap: 30px; */
+                    justify-content: space-evenly;
+                }
+                .grid-item
+                {
+                    /* width:90%; */                    
+                    justify-self: stretch;
+                }
+                .img
+                {
+                    /* display: block; */
+                    max-width: 100%;
+                    max-height: 100%;       
+                    /* backface-visibility: visible; */
+                    border-radius:5px;            
+                }
+                .shader
+                {
+                    position: relative;                    
+                }
+                .shader-hover
+                {   
+                    background-color: white;
+                    position:absolute;
+                    width:100%;
+                    height:100%;
+
+                    opacity: 0.0;              
+                   -webkit-backface-visibility: hidden;     /*  hack for safair */
+
+                    -webkit-transition: opacity 0.3s ease-out;  
+                    -moz-transition: opacity 0.3s ease-out;  
+                    -ms-transition: opacity 0.3s ease-out;  
+                    -o-transition: opacity 0.3s ease-out;  
+                        transition: opacity 0.3s ease-out;   
+
+                }
+                .shader-hover i
+                {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    -ms-transform: translate(-50%, -50%);  
+                    color: black;
+                }
+                .shader-hover:hover
+                {
+                    opacity: .3;
+                    visibility:visible;
+                    transition-delay:0s;
+                    cursor: pointer;
+                }                
+                .shader-menu
+                {
+                    display:grid;
+                    grid-template-columns: 100px 1fr 1fr;
+                    /* height:30px; */
+                    padding-top: 10px;
+                    align-items: center;
+                }
+                .shader-menu a
+                {
+                    padding-left: 3px;
+                }
+                .shader-menu a:hover,
+                {
+                    color:hotpink;
+                }
+
+                .shader-menu .fas:hover
+                {
+                    color:hotpink;
+                }
+                .spacing
+                {
+                    padding:12px;
+                }
+
+                a
+                {
+                    text-decoration: none;
+                    font-weight: 900;
+                    color:#222222;
+                }   
+                a:hover
+                {
+                    color:hotpink;
+                }                         
+                .line
+                {
+                    background-color: #b6b6b6;
+                    height: 1px;
+                    width: calc(100% - 24px);
+                    margin-left: 12px;
+                    margin-right: 12px;
+                } 
+                
+                footer
+                {
+                    padding-top: 40px;
+                }
+                .fade a{
+                    opacity: .4;
+                    -webkit-transition: opacity 0.3s ease-out;  
+                    -moz-transition: opacity 0.3s ease-out;  
+                    -ms-transition: opacity 0.3s ease-out;  
+                    -o-transition: opacity 0.3s ease-out;  
+                        transition: opacity 0.3s ease-out;                       
+                }   
+                .fade a:hover{
+                    opacity: 1;
+                }
+                .menu
+                {
+                    display:grid;
+                    grid-template-columns: 400px 1fr 1fr;                    
+                    align-items: center;
+                }
+            </style>
+
+    </head>
+    <body>
+        <header class="container">
+            <div class="menu">
+                <div class="left spacing font-light"><h1>30 Days of Shade</h1></div>
+                <div></div>
+                <div class="right spacing fade"><a href="#"><img style="width:34px;height:34px" src="assets/imgs/github-icon.png"/></a></div>
+            </div>
+            <div class="line"></div>
+        </header> 
+        <!-- <div class="container spacing"><div class="line"></div></div> -->
+        <main id="base" class="container grid v_space">
+                {{ content }}
+        </main>
+        <footer class="container">
+                <div class="center spacing"><h6>Made for shits and gigs by <a href="http://www.willstall.com">willstall</a></h6></div>
+        </footer>  
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+        <script>anchors.add();</script>
+        {% if site.google_analytics %}
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+          ga('create', '{{ site.google_analytics }}', 'auto');
+          ga('send', 'pageview');
+        </script>
+        {% endif %}
+        <!-- <script>
+            // create a bunch of copies of our base element to help styling
+            let container = document.querySelector("#base");
+            let copy = document.querySelector("#copy");
+            let copies = 31;
+
+            for(let i = 0; i < copies; i++)
+            {
+                container.prepend(copy.cloneNode(true));
+            }
+        </script>         -->
+    </body>
+</html>
