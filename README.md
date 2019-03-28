@@ -22,3 +22,14 @@ An interactive demo of my 30 days of shaders in GLSL using GLSLCanvas. Yes, I kn
 - [Desmos Graphic Calculator](https://www.desmos.com/calculator)
 - [Shader Shop by Tobyschachman](http://tobyschachman.com/Shadershop/editor/)
 - [iq Graph Toy](http://www.iquilezles.org/apps/graphtoy/)
+
+
+## Recording your own shaders
+I use a combination of [FFMPEG](https://ffmpeg.org) and [glslViewer](https://github.com/patriciogonzalezvivo/glslViewer) in order to take create my looping videos for both [instagram](https://www.instagram.com/willstall/) and [twitter](https://twitter.com/willstall). A sequence of images is created with glslViewer and then turned into a video using FFMPEG. To make things even easier I created a very basic shell script to automate all of this. Here it is!
+
+Usage:
+  record.sh fileName duractionInSeconds folderName
+Example:
+  record.sh exampleFile.frag 5 exampleFolder
+
+- [My Automated Video Shell Script](30-days-of-shade/assets/shaders/record.sh)
