@@ -32,4 +32,4 @@ Usage:
 Example:
   record.sh exampleFile.frag 5 exampleFolder
 
-- [My Automated Video Shell Script](30-days-of-shade/assets/shaders/record.sh)
+- [My Automated Video Shell Script](https://github.com/willstall/30-days-of-shade/assets/shaders/record.sh)
