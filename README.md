@@ -19,6 +19,7 @@ An interactive demo of my 30 days of shaders in GLSL using GLSLCanvas. Yes, I kn
 - [kodelife](https://hexler.net/software/kodelife/)
 
 ### Math Tools
+- [Math as Code](https://github.com/Jam3/math-as-code)
 - [Desmos Graphic Calculator](https://www.desmos.com/calculator)
 - [Shader Shop by Tobyschachman](http://tobyschachman.com/Shadershop/editor/)
 - [iq Graph Toy](http://www.iquilezles.org/apps/graphtoy/)
