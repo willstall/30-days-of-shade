@@ -1,0 +1,64 @@
+/* @import url(https://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,700,700italic); */
+
+@import url(https://fonts.googleapis.com/css?family=Gloria+Hallelujah);
+@import url(https://fonts.googleapis.com/css?family=Dosis:200,600,700,800);
+
+/* ROOT FONT STYLES */
+
+* ,body{
+  font-family: 'Dosis', Helvetica, sans-serif;
+  /* color: #333447; */
+  line-height: 1.4;
+  /* font-weight: 600; */
+}
+
+/* TYPOGRAPHY */
+
+footer
+{
+    font-family: 'Gloria Hallelujah' !important;
+} 
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.375rem;
+}
+
+h4 {
+  font-size: 1.125rem;
+}
+
+h5 {
+  font-size: 1rem;
+}
+
+h6 {
+  font-size: 0.875rem;
+}
+
+p {
+  font-size: 1.125rem;
+  font-weight: 200;
+  line-height: 1.8;
+}
+
+.font-light {
+  font-weight: 200;
+}
+
+.font-regular {
+  font-weight: 700;
+}
+
+.font-heavy {
+  font-weight: 800;
+}
+
+  

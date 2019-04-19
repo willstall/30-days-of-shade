@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>30 Days - GLSL Gallery | 30-days-of-shade</title>
+<meta name="generator" content="Jekyll v3.7.4" />
+<meta property="og:title" content="30 Days - GLSL Gallery" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="30 days of shaders in GLSL using GLSLCanvas" />
+<meta property="og:description" content="30 days of shaders in GLSL using GLSLCanvas" />
+<link rel="canonical" href="http://localhost:4000/" />
+<meta property="og:url" content="http://localhost:4000/" />
+<meta property="og:site_name" content="30-days-of-shade" />
+<script type="application/ld+json">
+{"name":"30-days-of-shade","description":"30 days of shaders in GLSL using GLSLCanvas","@type":"WebSite","url":"http://localhost:4000/","headline":"30 Days - GLSL Gallery","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+            <link rel="stylesheet" href="assets/css/reset.css">
+            <link rel="stylesheet" href="assets/css/font.css">
+            
+            <!-- <link rel="stylesheet" href="assets/css/simple-grid.css"> -->
+            <link rel="stylesheet" href="assets/css/all.css">
+            <style>
+                *
+                {
+                    margin:0;
+                    padding:0;
+                    color:#333333;
+                }
+                div
+                {
+                    /* border: solid 1px red; */
+                }
+                .container
+                {
+                    width: 100%;
+                    max-width: 960px;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+
+                .v_space
+                {
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                }
+
+                .left {
+                    text-align: left;
+                }
+
+                .right {
+                    text-align: right;
+                }
+
+                .center {
+                    text-align: center;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+                .grid
+                {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fill, minmax(320px,0fr));
+                    /* grid-row-gap: 30px; */
+                    justify-content: space-evenly;
+                }
+                .grid-item
+                {
+                    /* width:90%; */                    
+                    justify-self: stretch;
+                }
+                .img
+                {
+                    /* display: block; */
+                    max-width: 100%;
+                    max-height: 100%;       
+                    /* backface-visibility: visible; */
+                    border-radius:5px;            
+                }
+                .shader
+                {
+                    position: relative;                    
+                }
+                .shader-hover
+                {   
+                    background-color: white;
+                    position:absolute;
+                    width:100%;
+                    height:100%;
+
+                    opacity: 0.0;              
+                   -webkit-backface-visibility: hidden;     /*  hack for safair */
+
+                    -webkit-transition: opacity 0.3s ease-out;  
+                    -moz-transition: opacity 0.3s ease-out;  
+                    -ms-transition: opacity 0.3s ease-out;  
+                    -o-transition: opacity 0.3s ease-out;  
+                        transition: opacity 0.3s ease-out;   
+
+                }
+                .shader-hover i
+                {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    -ms-transform: translate(-50%, -50%);  
+                    color: black;
+                }
+                .shader-hover:hover
+                {
+                    opacity: .3;
+                    visibility:visible;
+                    transition-delay:0s;
+                    cursor: pointer;
+                }                
+                .shader-menu
+                {
+                    display:grid;
+                    grid-template-columns: 100px 1fr 1fr;
+                    /* height:30px; */
+                    padding-top: 10px;
+                    align-items: center;
+                }
+                .shader-menu a
+                {
+                    padding-left: 3px;
+                }
+                .shader-menu a:hover,
+                {
+                    color:hotpink;
+                }
+
+                .shader-menu .fas:hover,.shader-menu .fab:hover,.shader-menu .fa:hover
+                {
+                    color:hotpink;
+                }
+                .spacing
+                {
+                    padding:12px;
+                }
+
+                a
+                {
+                    text-decoration: none;
+                    font-weight: 900;
+                    color:#222222;
+                }   
+                a:hover
+                {
+                    color:hotpink;
+                }                         
+                .line
+                {
+                    background-color: #b6b6b6;
+                    height: 1px;
+                    width: calc(100% - 24px);
+                    margin-left: 12px;
+                    margin-right: 12px;
+                } 
+                
+                footer
+                {
+                    padding-top: 40px;
+                }
+                .fade a{
+                    opacity: .4;
+                    -webkit-transition: opacity 0.3s ease-out;  
+                    -moz-transition: opacity 0.3s ease-out;  
+                    -ms-transition: opacity 0.3s ease-out;  
+                    -o-transition: opacity 0.3s ease-out;  
+                        transition: opacity 0.3s ease-out;                       
+                }   
+                .fade a:hover{
+                    opacity: 1;
+                }
+                .menu
+                {
+                    display:grid;
+                    grid-template-columns: 2fr 0fr 1fr;                    
+                    align-items: center;
+                }
+            </style>
+
+    </head>
+    <body>
+        <header class="container">
+            <div class="menu">
+                <div class="left spacing font-light"><h1>30 Days of Shade</h1></div>
+                <div></div>
+                <div class="right spacing fade"><a href="https://github.com/willstall/30-days-of-shade"><img style="width:34px;height:34px" src="assets/imgs/github-icon.png"/></a></div>
+            </div>
+            <div class="line"></div>
+        </header> 
+        <!-- <div class="container spacing"><div class="line"></div></div> -->
+        
+        <main id="base" class="container v_space">
+            <p class="spacing">Below is a list of 30 shaders created in GLSL over the course of 30 days in January 2019 for shits and gigs. Don't expect code to be commented or good; these are just rough sketches</p>
+
+<div class="grid">
+
+    
+    
+    <div id="copy" class="grid-item center spacing font-heavy">                
+        <div class="shader">                
+                <a href=/editor.html?file=assets/shaders/031_three_dot_one.frag>
+                <div class="shader-hover img"><i class="fas fa-cog fa-5x"></i></div>                
+                <!-- <img class="img" src="assets/imgs/placeholder.png" /> -->
+                
+                <video class="img" autoplay loop>
+                        <source src=/assets/videos/031.mp4 type="video/mp4">
+                </video>
+                </a>
+        </div>
+        <div class="shader-menu">
+            <div class="left"><h3>.031</h3></div>
+            <div></div>
+            <div class="right">
+                <nav>
+                    <a href="https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/031_three_dot_one.frag"><i class="fas fa-file"></i></a>
+                    <a href=/editor.html?file=assets/shaders/031_three_dot_one.frag><i class="fas fa-cog"></i></a>
+                    <!-- <a href="#"><i class="fas fa-eye"></i></a> -->                    
+                    <a href="https://twitter.com/willstall/status/1091073365954252801"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/p/BtT_0v6j1QW/"><i class="fab fa-instagram"></i></a>
+                </nav>
+            </div>
+        </div>
+    </div>
+    
+    <div id="copy" class="grid-item center spacing font-heavy">                
+        <div class="shader">                
+                <a href=/editor.html?file=assets/shaders/030_daily_minimal_346.frag>
+                <div class="shader-hover img"><i class="fas fa-cog fa-5x"></i></div>                
+                <!-- <img class="img" src="assets/imgs/placeholder.png" /> -->
+                
+                <video class="img" autoplay loop>
+                        <source src=/assets/videos/030.mp4 type="video/mp4">
+                </video>
+                </a>
+        </div>
+        <div class="shader-menu">
+            <div class="left"><h3>.030</h3></div>
+            <div></div>
+            <div class="right">
+                <nav>
+                    <a href="https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/030_daily_minimal_346.frag"><i class="fas fa-file"></i></a>
+                    <a href=/editor.html?file=assets/shaders/030_daily_minimal_346.frag><i class="fas fa-cog"></i></a>
+                    <!-- <a href="#"><i class="fas fa-eye"></i></a> -->                    
+                    <a href="https://twitter.com/willstall/status/1090631290565595136"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/p/BtQ3PmFDgwJ/"><i class="fab fa-instagram"></i></a>
+                </nav>
+            </div>
+        </div>
+    </div>
+    
+    <div id="copy" class="grid-item center spacing font-heavy">                
+        <div class="shader">                
+                <a href=/editor.html?file=assets/shaders/029_x_loop.frag>
+                <div class="shader-hover img"><i class="fas fa-cog fa-5x"></i></div>                
+                <!-- <img class="img" src="assets/imgs/placeholder.png" /> -->
+                
+                <video class="img" autoplay loop>
+                        <source src=/assets/videos/029.mp4 type="video/mp4">
+                </video>
+                </a>
+        </div>
+        <div class="shader-menu">
+            <div class="left"><h3>.029</h3></div>
+            <div></div>
+            <div class="right">
+                <nav>
+                    <a href="https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/029_x_loop.frag"><i class="fas fa-file"></i></a>
+                    <a href=/editor.html?file=assets/shaders/029_x_loop.frag><i class="fas fa-cog"></i></a>
+                    <!-- <a href="#"><i class="fas fa-eye"></i></a> -->                    
+                    <a href="https://twitter.com/willstall/status/1090256398372536320"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/p/BtOMaACDQ09/"><i class="fab fa-instagram"></i></a>
+                </nav>
+            </div>
+        </div>
+    </div>
+    
+    <div id="copy" class="grid-item center spacing font-heavy">                
+        <div class="shader">                
+                <a href=/editor.html?file=assets/shaders/028_hex_reflect.frag>
+                <div class="shader-hover img"><i class="fas fa-cog fa-5x"></i></div>                
+                <!-- <img class="img" src="assets/imgs/placeholder.png" /> -->
+                
+                <video class="img" autoplay loop>
+                        <source src=/assets/videos/028.mp4 type="video/mp4">
+                </video>
+                </a>
+        </div>
+        <div class="shader-menu">
+            <div class="left"><h3>.028</h3></div>
+            <div></div>
+            <div class="right">
+                <nav>
+                    <a href="https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/028_hex_reflect.frag"><i class="fas fa-file"></i></a>
+                    <a href=/editor.html?file=assets/shaders/028_hex_reflect.frag><i class="fas fa-cog"></i></a>
+                    <!-- <a href="#"><i class="fas fa-eye"></i></a> -->                    
+                    <a href="https://twitter.com/willstall/status/1089891712208723968"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/p/BtLmOB5jc3i/"><i class="fab fa-instagram"></i></a>
+                </nav>
+            </div>
+        </div>
+    </div>
+    
+    <div id="copy" class="grid-item center spacing font-heavy">                
+        <div class="shader">                
+                <a href=/editor.html?file=assets/shaders/027_motif_meld.frag>
+                <div class="shader-hover img"><i class="fas fa-cog fa-5x"></i></div>                
+                <!-- <img class="img" src="assets/imgs/placeholder.png" /> -->
+                
+                <video class="img" autoplay loop>
+                        <source src=/assets/videos/027.mp4 type="video/mp4">
+                </video>
+                </a>
+        </div>
+        <div class="shader-menu">
+            <div class="left"><h3>.027</h3></div>
+            <div></div>
+            <div class="right">
+                <nav>
+                    <a href="https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/027_motif_meld.frag"><i class="fas fa-file"></i></a>
+                    <a href=/editor.html?file=assets/shaders/027_motif_meld.frag><i class="fas fa-cog"></i></a>
+                    <!-- <a href="#"><i class="fas fa-eye"></i></a> -->                    
+                    <a href="https://twitter.com/willstall/status/1089573240987631617"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/p/BtJVzlzDyfS/"><i class="fab fa-instagram"></i></a>
+                </nav>
+            </div>
+        </div>
+    </div>
+    
+    <div id="copy" class="grid-item center spacing font-heavy">                
+        <div class="shader">                
+                <a href=/editor.html?file=assets/shaders/026_universe.frag>
+                <div class="shader-hover img"><i class="fas fa-cog fa-5x"></i></div>                
+                <!-- <img class="img" src="assets/imgs/placeholder.png" /> -->
+                
+                <video class="img" autoplay loop>
+                        <source src=/assets/videos/026.mp4 type="video/mp4">
+                </video>
+                </a>
+        </div>
+        <div class="shader-menu">
+            <div class="left"><h3>.026</h3></div>
+            <div></div>
+            <div class="right">
+                <nav>
+                    <a href="https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/026_universe.frag"><i class="fas fa-file"></i></a>
+                    <a href=/editor.html?file=assets/shaders/026_universe.frag><i class="fas fa-cog"></i></a>
+                    <!-- <a href="#"><i class="fas fa-eye"></i></a> -->                    
+                    <a href="https://twitter.com/willstall/status/1089170893484511232"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/p/BtGfQvfjUBQ/"><i class="fab fa-instagram"></i></a>
+                </nav>
+            </div>
+        </div>
+    </div>
+    
+    <div id="copy" class="grid-item center spacing font-heavy">                
+        <div class="shader">                
+                <a href=/editor.html?file=assets/shaders/025_polar_flower.frag>
+                <div class="shader-hover img"><i class="fas fa-cog fa-5x"></i></div>                
+                <!-- <img class="img" src="assets/imgs/placeholder.png" /> -->
+                
+                <video class="img" autoplay loop>
+                        <source src=/assets/videos/025.mp4 type="video/mp4">
+                </video>
+                </a>
+        </div>
+        <div class="shader-menu">
+            <div class="left"><h3>.025</h3></div>
+            <div></div>
+            <div class="right">
+                <nav>
+                    <a href="https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/025_polar_flower.frag"><i class="fas fa-file"></i></a>
+                    <a href=/editor.html?file=assets/shaders/025_polar_flower.frag><i class="fas fa-cog"></i></a>
+                    <!-- <a href="#"><i class="fas fa-eye"></i></a> -->                    
+                    <a href="https://twitter.com/willstall/status/1088866447907061765"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/p/BtERviMjClo/"><i class="fab fa-instagram"></i></a>
+                </nav>
+            </div>
+        </div>
+    </div>
+    
+    <div id="copy" class="grid-item center spacing font-heavy">                
+        <div class="shader">                
+                <a href=/editor.html?file=assets/shaders/024_meta_pattern.frag>
+                <div class="shader-hover img"><i class="fas fa-cog fa-5x"></i></div>                
+                <!-- <img class="img" src="assets/imgs/placeholder.png" /> -->
+                
+                <video class="img" autoplay loop>
+                        <source src=/assets/videos/024.mp4 type="video/mp4">
+                </video>
+                </a>
+        </div>
+        <div class="shader-menu">
+            <div class="left"><h3>.024</h3></div>
+            <div></div>
+            <div class="right">
+                <nav>
+                    <a href="https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/024_meta_pattern.frag"><i class="fas fa-file"></i></a>
+                    <a href=/editor.html?file=assets/shaders/024_meta_pattern.frag><i class="fas fa-cog"></i></a>
+                    <!-- <a href="#"><i class="fas fa-eye"></i></a> -->                    
+                    <a href="https://twitter.com/willstall/status/1088442241176227841"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/p/BtBTwWbjCfp/"><i class="fab fa-instagram"></i></a>
+                </nav>
+            </div>
+        </div>
+    </div>
+    
+    <div id="copy" class="grid-item center spacing font-heavy">                
+        <div class="shader">                
+                <a href=/editor.html?file=assets/shaders/023_tri_buffer.frag>
+                <div class="shader-hover img"><i class="fas fa-cog fa-5x"></i></div>                
+                <!-- <img class="img" src="assets/imgs/placeholder.png" /> -->
+                
+                <video class="img" autoplay loop>
+                        <source src=/assets/videos/023.mp4 type="video/mp4">
+                </video>
+                </a>
+        </div>
+        <div class="shader-menu">
+            <div class="left"><h3>.023</h3></div>
+            <div></div>
+            <div class="right">
+                <nav>
+                    <a href="https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/023_tri_buffer.frag"><i class="fas fa-file"></i></a>
+                    <a href=/editor.html?file=assets/shaders/023_tri_buffer.frag><i class="fas fa-cog"></i></a>
+                    <!-- <a href="#"><i class="fas fa-eye"></i></a> -->                    
+                    <a href="https://twitter.com/willstall/status/1088092626832769024"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/p/Bs-0yjcjF_z/"><i class="fab fa-instagram"></i></a>
+                </nav>
+            </div>
+        </div>
+    </div>
+    
+    <div id="copy" class="grid-item center spacing font-heavy">                
+        <div class="shader">                
+                <a href=/editor.html?file=assets/shaders/022_shake_shack.frag>
+                <div class="shader-hover img"><i class="fas fa-cog fa-5x"></i></div>                
+                <!-- <img class="img" src="assets/imgs/placeholder.png" /> -->
+                
+                <video class="img" autoplay loop>
+                        <source src=/assets/videos/022.mp4 type="video/mp4">
+                </video>
+                </a>
+        </div>
+        <div class="shader-menu">
+            <div class="left"><h3>.022</h3></div>
+            <div></div>
+            <div class="right">
+                <nav>
+                    <a href="https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/022_shake_shack.frag"><i class="fas fa-file"></i></a>
+                    <a href=/editor.html?file=assets/shaders/022_shake_shack.frag><i class="fas fa-cog"></i></a>
+                    <!-- <a href="#"><i class="fas fa-eye"></i></a> -->                    
+                    <a href="https://twitter.com/willstall/status/1087711821405044737"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/p/Bs8Hkg3jOLX/"><i class="fab fa-instagram"></i></a>
+                </nav>
+            </div>
+        </div>
+    </div>
+    
+    <div id="copy" class="grid-item center spacing font-heavy">                
+        <div class="shader">                
+                <a href=/editor.html?file=assets/shaders/021_frantic_noise.frag>
+                <div class="shader-hover img"><i class="fas fa-cog fa-5x"></i></div>                
+                <!-- <img class="img" src="assets/imgs/placeholder.png" /> -->
+                
+                <video class="img" autoplay loop>
+                        <source src=/assets/videos/021.mp4 type="video/mp4">
+                </video>
+                </a>
+        </div>
+        <div class="shader-menu">
+            <div class="left"><h3>.021</h3></div>
+            <div></div>
+            <div class="right">
+                <nav>
+                    <a href="https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/021_frantic_noise.frag"><i class="fas fa-file"></i></a>
+                    <a href=/editor.html?file=assets/shaders/021_frantic_noise.frag><i class="fas fa-cog"></i></a>
+                    <!-- <a href="#"><i class="fas fa-eye"></i></a> -->                    
+                    <a href="https://twitter.com/willstall/status/1087482939364044808"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/p/Bs6fhq6DzLy/"><i class="fab fa-instagram"></i></a>
+                </nav>
+            </div>
+        </div>
+    </div>
+    
+    <div id="copy" class="grid-item center spacing font-heavy">                
+        <div class="shader">                
+                <a href=/editor.html?file=assets/shaders/020_zig_circle.frag>
+                <div class="shader-hover img"><i class="fas fa-cog fa-5x"></i></div>                
+                <!-- <img class="img" src="assets/imgs/placeholder.png" /> -->
+                
+                <video class="img" autoplay loop>
+                        <source src=/assets/videos/020.mp4 type="video/mp4">
+                </video>
+                </a>
+        </div>
+        <div class="shader-menu">
+            <div class="left"><h3>.020</h3></div>
+            <div></div>
+            <div class="right">
+                <nav>
+                    <a href="https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/020_zig_circle.frag"><i class="fas fa-file"></i></a>
+                    <a href=/editor.html?file=assets/shaders/020_zig_circle.frag><i class="fas fa-cog"></i></a>
+                    <!-- <a href="#"><i class="fas fa-eye"></i></a> -->                    
+                    <a href="https://twitter.com/willstall/status/1087182960464461824"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/p/Bs4W4CUDZIV/"><i class="fab fa-instagram"></i></a>
+                </nav>
+            </div>
+        </div>
+    </div>
+    
+    <div id="copy" class="grid-item center spacing font-heavy">                
+        <div class="shader">                
+                <a href=/editor.html?file=assets/shaders/019_circle.frag>
+                <div class="shader-hover img"><i class="fas fa-cog fa-5x"></i></div>                
+                <!-- <img class="img" src="assets/imgs/placeholder.png" /> -->
+                
+                <video class="img" autoplay loop>
+                        <source src=/assets/videos/019.mp4 type="video/mp4">
+                </video>
+                </a>
+        </div>
+        <div class="shader-menu">
+            <div class="left"><h3>.019</h3></div>
+            <div></div>
+            <div class="right">
+                <nav>
+                    <a href="https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/019_circle.frag"><i class="fas fa-file"></i></a>
+                    <a href=/editor.html?file=assets/shaders/019_circle.frag><i class="fas fa-cog"></i></a>
+                    <!-- <a href="#"><i class="fas fa-eye"></i></a> -->                    
+                    <a href="https://twitter.com/willstall/status/1086683874644643840"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/p/Bs00Br2DGun/"><i class="fab fa-instagram"></i></a>
+                </nav>
+            </div>
+        </div>
+    </div>
+    
+    <div id="copy" class="grid-item center spacing font-heavy">                
+        <div class="shader">                
+                <a href=/editor.html?file=assets/shaders/018_diamond.frag>
+                <div class="shader-hover img"><i class="fas fa-cog fa-5x"></i></div>                
+                <!-- <img class="img" src="assets/imgs/placeholder.png" /> -->
+                
+                <video class="img" autoplay loop>
+                        <source src=/assets/videos/018.mp4 type="video/mp4">
+                </video>
+                </a>
+        </div>
+        <div class="shader-menu">
+            <div class="left"><h3>.018</h3></div>
+            <div></div>
+            <div class="right">
+                <nav>
+                    <a href="https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/018_diamond.frag"><i class="fas fa-file"></i></a>
+                    <a href=/editor.html?file=assets/shaders/018_diamond.frag><i class="fas fa-cog"></i></a>
+                    <!-- <a href="#"><i class="fas fa-eye"></i></a> -->                    
+                    <a href="https://twitter.com/willstall/status/1086263243440603137"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/p/Bsx0ZwJjfvO/"><i class="fab fa-instagram"></i></a>
+                </nav>
+            </div>
+        </div>
+    </div>
+    
+    <div id="copy" class="grid-item center spacing font-heavy">                
+        <div class="shader">                
+                <a href=/editor.html?file=assets/shaders/017_ying_yang.frag>
+                <div class="shader-hover img"><i class="fas fa-cog fa-5x"></i></div>                
+                <!-- <img class="img" src="assets/imgs/placeholder.png" /> -->
+                
+                <video class="img" autoplay loop>
+                        <source src=/assets/videos/017.mp4 type="video/mp4">
+                </video>
+                </a>
+        </div>
+        <div class="shader-menu">
+            <div class="left"><h3>.017</h3></div>
+            <div></div>
+            <div class="right">
+                <nav>
+                    <a href="https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/017_ying_yang.frag"><i class="fas fa-file"></i></a>
+                    <a href=/editor.html?file=assets/shaders/017_ying_yang.frag><i class="fas fa-cog"></i></a>
+                    <!-- <a href="#"><i class="fas fa-eye"></i></a> -->                    
+                    <a href="https://twitter.com/willstall/status/1085943761258102786"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/p/BsvjRZkDT3X/"><i class="fab fa-instagram"></i></a>
+                </nav>
+            </div>
+        </div>
+    </div>
+    
+    <div id="copy" class="grid-item center spacing font-heavy">                
+        <div class="shader">                
+                <a href=/editor.html?file=assets/shaders/016_log.frag>
+                <div class="shader-hover img"><i class="fas fa-cog fa-5x"></i></div>                
+                <!-- <img class="img" src="assets/imgs/placeholder.png" /> -->
+                
+                <video class="img" autoplay loop>
+                        <source src=/assets/videos/016.mp4 type="video/mp4">
+                </video>
+                </a>
+        </div>
+        <div class="shader-menu">
+            <div class="left"><h3>.016</h3></div>
+            <div></div>
+            <div class="right">
+                <nav>
+                    <a href="https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/016_log.frag"><i class="fas fa-file"></i></a>
+                    <a href=/editor.html?file=assets/shaders/016_log.frag><i class="fas fa-cog"></i></a>
+                    <!-- <a href="#"><i class="fas fa-eye"></i></a> -->                    
+                    <a href="https://twitter.com/willstall/status/1085536749852467200"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/p/Bsspia1DQji/"><i class="fab fa-instagram"></i></a>
+                </nav>
+            </div>
+        </div>
+    </div>
+    
+    <div id="copy" class="grid-item center spacing font-heavy">                
+        <div class="shader">                
+                <a href=/editor.html?file=assets/shaders/015_domain_repeat.frag>
+                <div class="shader-hover img"><i class="fas fa-cog fa-5x"></i></div>                
+                <!-- <img class="img" src="assets/imgs/placeholder.png" /> -->
+                
+                <video class="img" autoplay loop>
+                        <source src=/assets/videos/015.mp4 type="video/mp4">
+                </video>
+                </a>
+        </div>
+        <div class="shader-menu">
+            <div class="left"><h3>.015</h3></div>
+            <div></div>
+            <div class="right">
+                <nav>
+                    <a href="https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/015_domain_repeat.frag"><i class="fas fa-file"></i></a>
+                    <a href=/editor.html?file=assets/shaders/015_domain_repeat.frag><i class="fas fa-cog"></i></a>
+                    <!-- <a href="#"><i class="fas fa-eye"></i></a> -->                    
+                    <a href="https://twitter.com/willstall/status/1085172131170828288"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/p/BsqEsCcDO8M/"><i class="fab fa-instagram"></i></a>
+                </nav>
+            </div>
+        </div>
+    </div>
+    
+    <div id="copy" class="grid-item center spacing font-heavy">                
+        <div class="shader">                
+                <a href=/editor.html?file=assets/shaders/014_popsicle_spin.frag>
+                <div class="shader-hover img"><i class="fas fa-cog fa-5x"></i></div>                
+                <!-- <img class="img" src="assets/imgs/placeholder.png" /> -->
+                
+                <video class="img" autoplay loop>
+                        <source src=/assets/videos/014.mp4 type="video/mp4">
+                </video>
+                </a>
+        </div>
+        <div class="shader-menu">
+            <div class="left"><h3>.014</h3></div>
+            <div></div>
+            <div class="right">
+                <nav>
+                    <a href="https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/014_popsicle_spin.frag"><i class="fas fa-file"></i></a>
+                    <a href=/editor.html?file=assets/shaders/014_popsicle_spin.frag><i class="fas fa-cog"></i></a>
+                    <!-- <a href="#"><i class="fas fa-eye"></i></a> -->                    
+                    <a href="https://twitter.com/willstall/status/1084822708645437440"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/p/Bsnlrl0DrCK/"><i class="fab fa-instagram"></i></a>
+                </nav>
+            </div>
+        </div>
+    </div>
+    
+    <div id="copy" class="grid-item center spacing font-heavy">                
+        <div class="shader">                
+                <a href=/editor.html?file=assets/shaders/013_cross_fades.frag>
+                <div class="shader-hover img"><i class="fas fa-cog fa-5x"></i></div>                
+                <!-- <img class="img" src="assets/imgs/placeholder.png" /> -->
+                
+                <video class="img" autoplay loop>
+                        <source src=/assets/videos/013.mp4 type="video/mp4">
+                </video>
+                </a>
+        </div>
+        <div class="shader-menu">
+            <div class="left"><h3>.013</h3></div>
+            <div></div>
+            <div class="right">
+                <nav>
+                    <a href="https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/013_cross_fades.frag"><i class="fas fa-file"></i></a>
+                    <a href=/editor.html?file=assets/shaders/013_cross_fades.frag><i class="fas fa-cog"></i></a>
+                    <!-- <a href="#"><i class="fas fa-eye"></i></a> -->                    
+                    <a href="https://twitter.com/willstall/status/1084386924784222209"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/p/BskfmhrDSaL/"><i class="fab fa-instagram"></i></a>
+                </nav>
+            </div>
+        </div>
+    </div>
+    
+    <div id="copy" class="grid-item center spacing font-heavy">                
+        <div class="shader">                
+                <a href=/editor.html?file=assets/shaders/012_circle_dip.frag>
+                <div class="shader-hover img"><i class="fas fa-cog fa-5x"></i></div>                
+                <!-- <img class="img" src="assets/imgs/placeholder.png" /> -->
+                
+                <video class="img" autoplay loop>
+                        <source src=/assets/videos/012.mp4 type="video/mp4">
+                </video>
+                </a>
+        </div>
+        <div class="shader-menu">
+            <div class="left"><h3>.012</h3></div>
+            <div></div>
+            <div class="right">
+                <nav>
+                    <a href="https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/012_circle_dip.frag"><i class="fas fa-file"></i></a>
+                    <a href=/editor.html?file=assets/shaders/012_circle_dip.frag><i class="fas fa-cog"></i></a>
+                    <!-- <a href="#"><i class="fas fa-eye"></i></a> -->                    
+                    <a href="https://twitter.com/willstall/status/1084144410835734529"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/p/BsixYLzDZtX/"><i class="fab fa-instagram"></i></a>
+                </nav>
+            </div>
+        </div>
+    </div>
+    
+    <div id="copy" class="grid-item center spacing font-heavy">                
+        <div class="shader">                
+                <a href=/editor.html?file=assets/shaders/011_voronoi_island.frag>
+                <div class="shader-hover img"><i class="fas fa-cog fa-5x"></i></div>                
+                <!-- <img class="img" src="assets/imgs/placeholder.png" /> -->
+                
+                <video class="img" autoplay loop>
+                        <source src=/assets/videos/011.mp4 type="video/mp4">
+                </video>
+                </a>
+        </div>
+        <div class="shader-menu">
+            <div class="left"><h3>.011</h3></div>
+            <div></div>
+            <div class="right">
+                <nav>
+                    <a href="https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/011_voronoi_island.frag"><i class="fas fa-file"></i></a>
+                    <a href=/editor.html?file=assets/shaders/011_voronoi_island.frag><i class="fas fa-cog"></i></a>
+                    <!-- <a href="#"><i class="fas fa-eye"></i></a> -->                    
+                    <a href="https://twitter.com/willstall/status/1083724738336301056"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/p/BsfyIktDObx/"><i class="fab fa-instagram"></i></a>
+                </nav>
+            </div>
+        </div>
+    </div>
+    
+    <div id="copy" class="grid-item center spacing font-heavy">                
+        <div class="shader">                
+                <a href=/editor.html?file=assets/shaders/010_voronoi_meta.frag>
+                <div class="shader-hover img"><i class="fas fa-cog fa-5x"></i></div>                
+                <!-- <img class="img" src="assets/imgs/placeholder.png" /> -->
+                
+                <video class="img" autoplay loop>
+                        <source src=/assets/videos/010.mp4 type="video/mp4">
+                </video>
+                </a>
+        </div>
+        <div class="shader-menu">
+            <div class="left"><h3>.010</h3></div>
+            <div></div>
+            <div class="right">
+                <nav>
+                    <a href="https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/010_voronoi_meta.frag"><i class="fas fa-file"></i></a>
+                    <a href=/editor.html?file=assets/shaders/010_voronoi_meta.frag><i class="fas fa-cog"></i></a>
+                    <!-- <a href="#"><i class="fas fa-eye"></i></a> -->                    
+                    <a href="https://twitter.com/willstall/status/1083371364906610693"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/p/BsdRn6IjMtr/"><i class="fab fa-instagram"></i></a>
+                </nav>
+            </div>
+        </div>
+    </div>
+    
+    <div id="copy" class="grid-item center spacing font-heavy">                
+        <div class="shader">                
+                <a href=/editor.html?file=assets/shaders/009_tri_noise.frag>
+                <div class="shader-hover img"><i class="fas fa-cog fa-5x"></i></div>                
+                <!-- <img class="img" src="assets/imgs/placeholder.png" /> -->
+                
+                <video class="img" autoplay loop>
+                        <source src=/assets/videos/009.mp4 type="video/mp4">
+                </video>
+                </a>
+        </div>
+        <div class="shader-menu">
+            <div class="left"><h3>.009</h3></div>
+            <div></div>
+            <div class="right">
+                <nav>
+                    <a href="https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/009_tri_noise.frag"><i class="fas fa-file"></i></a>
+                    <a href=/editor.html?file=assets/shaders/009_tri_noise.frag><i class="fas fa-cog"></i></a>
+                    <!-- <a href="#"><i class="fas fa-eye"></i></a> -->                    
+                    <a href="https://twitter.com/willstall/status/1083007763456970753"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/p/BsarHq3jFBK/"><i class="fab fa-instagram"></i></a>
+                </nav>
+            </div>
+        </div>
+    </div>
+    
+    <div id="copy" class="grid-item center spacing font-heavy">                
+        <div class="shader">                
+                <a href=/editor.html?file=assets/shaders/008_sdf_shadows.frag>
+                <div class="shader-hover img"><i class="fas fa-cog fa-5x"></i></div>                
+                <!-- <img class="img" src="assets/imgs/placeholder.png" /> -->
+                
+                <video class="img" autoplay loop>
+                        <source src=/assets/videos/008.mp4 type="video/mp4">
+                </video>
+                </a>
+        </div>
+        <div class="shader-menu">
+            <div class="left"><h3>.008</h3></div>
+            <div></div>
+            <div class="right">
+                <nav>
+                    <a href="https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/008_sdf_shadows.frag"><i class="fas fa-file"></i></a>
+                    <a href=/editor.html?file=assets/shaders/008_sdf_shadows.frag><i class="fas fa-cog"></i></a>
+                    <!-- <a href="#"><i class="fas fa-eye"></i></a> -->                    
+                    <a href="https://twitter.com/willstall/status/1082650068736458752"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/p/BsYJIMXDf_d/"><i class="fab fa-instagram"></i></a>
+                </nav>
+            </div>
+        </div>
+    </div>
+    
+    <div id="copy" class="grid-item center spacing font-heavy">                
+        <div class="shader">                
+                <a href=/editor.html?file=assets/shaders/007_union.frag>
+                <div class="shader-hover img"><i class="fas fa-cog fa-5x"></i></div>                
+                <!-- <img class="img" src="assets/imgs/placeholder.png" /> -->
+                
+                <video class="img" autoplay loop>
+                        <source src=/assets/videos/007.mp4 type="video/mp4">
+                </video>
+                </a>
+        </div>
+        <div class="shader-menu">
+            <div class="left"><h3>.007</h3></div>
+            <div></div>
+            <div class="right">
+                <nav>
+                    <a href="https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/007_union.frag"><i class="fas fa-file"></i></a>
+                    <a href=/editor.html?file=assets/shaders/007_union.frag><i class="fas fa-cog"></i></a>
+                    <!-- <a href="#"><i class="fas fa-eye"></i></a> -->                    
+                    <a href="https://twitter.com/willstall/status/1082352402391592960"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/p/BsWCQzujpKA/"><i class="fab fa-instagram"></i></a>
+                </nav>
+            </div>
+        </div>
+    </div>
+    
+    <div id="copy" class="grid-item center spacing font-heavy">                
+        <div class="shader">                
+                <a href=/editor.html?file=assets/shaders/006_sdf_lighting.frag>
+                <div class="shader-hover img"><i class="fas fa-cog fa-5x"></i></div>                
+                <!-- <img class="img" src="assets/imgs/placeholder.png" /> -->
+                
+                <video class="img" autoplay loop>
+                        <source src=/assets/videos/006.mp4 type="video/mp4">
+                </video>
+                </a>
+        </div>
+        <div class="shader-menu">
+            <div class="left"><h3>.006</h3></div>
+            <div></div>
+            <div class="right">
+                <nav>
+                    <a href="https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/006_sdf_lighting.frag"><i class="fas fa-file"></i></a>
+                    <a href=/editor.html?file=assets/shaders/006_sdf_lighting.frag><i class="fas fa-cog"></i></a>
+                    <!-- <a href="#"><i class="fas fa-eye"></i></a> -->                    
+                    <a href="https://twitter.com/willstall/status/1081939183265034240"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/p/BsTGSUID20U/"><i class="fab fa-instagram"></i></a>
+                </nav>
+            </div>
+        </div>
+    </div>
+    
+    <div id="copy" class="grid-item center spacing font-heavy">                
+        <div class="shader">                
+                <a href=/editor.html?file=assets/shaders/005_deathstar.frag>
+                <div class="shader-hover img"><i class="fas fa-cog fa-5x"></i></div>                
+                <!-- <img class="img" src="assets/imgs/placeholder.png" /> -->
+                
+                <video class="img" autoplay loop>
+                        <source src=/assets/videos/005.mp4 type="video/mp4">
+                </video>
+                </a>
+        </div>
+        <div class="shader-menu">
+            <div class="left"><h3>.005</h3></div>
+            <div></div>
+            <div class="right">
+                <nav>
+                    <a href="https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/005_deathstar.frag"><i class="fas fa-file"></i></a>
+                    <a href=/editor.html?file=assets/shaders/005_deathstar.frag><i class="fas fa-cog"></i></a>
+                    <!-- <a href="#"><i class="fas fa-eye"></i></a> -->                    
+                    <a href="https://twitter.com/willstall/status/1081700592706306048"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/p/BsRaEMIDCxl/"><i class="fab fa-instagram"></i></a>
+                </nav>
+            </div>
+        </div>
+    </div>
+    
+    <div id="copy" class="grid-item center spacing font-heavy">                
+        <div class="shader">                
+                <a href=/editor.html?file=assets/shaders/004_silexars.frag>
+                <div class="shader-hover img"><i class="fas fa-cog fa-5x"></i></div>                
+                <!-- <img class="img" src="assets/imgs/placeholder.png" /> -->
+                
+                <video class="img" autoplay loop>
+                        <source src=/assets/videos/004.mp4 type="video/mp4">
+                </video>
+                </a>
+        </div>
+        <div class="shader-menu">
+            <div class="left"><h3>.004</h3></div>
+            <div></div>
+            <div class="right">
+                <nav>
+                    <a href="https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/004_silexars.frag"><i class="fas fa-file"></i></a>
+                    <a href=/editor.html?file=assets/shaders/004_silexars.frag><i class="fas fa-cog"></i></a>
+                    <!-- <a href="#"><i class="fas fa-eye"></i></a> -->                    
+                    <a href="https://twitter.com/willstall/status/1081302600845312001"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/p/BsOkNClDWGS/"><i class="fab fa-instagram"></i></a>
+                </nav>
+            </div>
+        </div>
+    </div>
+    
+    <div id="copy" class="grid-item center spacing font-heavy">                
+        <div class="shader">                
+                <a href=/editor.html?file=assets/shaders/003_fake_buffer.frag>
+                <div class="shader-hover img"><i class="fas fa-cog fa-5x"></i></div>                
+                <!-- <img class="img" src="assets/imgs/placeholder.png" /> -->
+                
+                <video class="img" autoplay loop>
+                        <source src=/assets/videos/003.mp4 type="video/mp4">
+                </video>
+                </a>
+        </div>
+        <div class="shader-menu">
+            <div class="left"><h3>.003</h3></div>
+            <div></div>
+            <div class="right">
+                <nav>
+                    <a href="https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/003_fake_buffer.frag"><i class="fas fa-file"></i></a>
+                    <a href=/editor.html?file=assets/shaders/003_fake_buffer.frag><i class="fas fa-cog"></i></a>
+                    <!-- <a href="#"><i class="fas fa-eye"></i></a> -->                    
+                    <a href="https://twitter.com/willstall/status/1080998020861358080"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/p/BsMZnLzjV6Z/"><i class="fab fa-instagram"></i></a>
+                </nav>
+            </div>
+        </div>
+    </div>
+    
+    <div id="copy" class="grid-item center spacing font-heavy">                
+        <div class="shader">                
+                <a href=/editor.html?file=assets/shaders/002_simplex.frag>
+                <div class="shader-hover img"><i class="fas fa-cog fa-5x"></i></div>                
+                <!-- <img class="img" src="assets/imgs/placeholder.png" /> -->
+                
+                <video class="img" autoplay loop>
+                        <source src=/assets/videos/002.mp4 type="video/mp4">
+                </video>
+                </a>
+        </div>
+        <div class="shader-menu">
+            <div class="left"><h3>.002</h3></div>
+            <div></div>
+            <div class="right">
+                <nav>
+                    <a href="https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/002_simplex.frag"><i class="fas fa-file"></i></a>
+                    <a href=/editor.html?file=assets/shaders/002_simplex.frag><i class="fas fa-cog"></i></a>
+                    <!-- <a href="#"><i class="fas fa-eye"></i></a> -->                    
+                    <a href="https://twitter.com/willstall/status/1080529734403059712"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/p/BsJE9QyD7aX/"><i class="fab fa-instagram"></i></a>
+                </nav>
+            </div>
+        </div>
+    </div>
+    
+    <div id="copy" class="grid-item center spacing font-heavy">                
+        <div class="shader">                
+                <a href=/editor.html?file=assets/shaders/001_rehash.frag>
+                <div class="shader-hover img"><i class="fas fa-cog fa-5x"></i></div>                
+                <!-- <img class="img" src="assets/imgs/placeholder.png" /> -->
+                
+                <video class="img" autoplay loop>
+                        <source src=/assets/videos/001.mp4 type="video/mp4">
+                </video>
+                </a>
+        </div>
+        <div class="shader-menu">
+            <div class="left"><h3>.001</h3></div>
+            <div></div>
+            <div class="right">
+                <nav>
+                    <a href="https://github.com/willstall/30-days-of-shade/blob/master/assets/shaders/001_rehash.frag"><i class="fas fa-file"></i></a>
+                    <a href=/editor.html?file=assets/shaders/001_rehash.frag><i class="fas fa-cog"></i></a>
+                    <!-- <a href="#"><i class="fas fa-eye"></i></a> -->                    
+                    <a href="https://twitter.com/willstall/status/1080324099820392449"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/p/BsHnbX3jHkj/"><i class="fab fa-instagram"></i></a>
+                </nav>
+            </div>
+        </div>
+    </div>
+    
+
+</div>
+        </main>
+
+        <footer class="container">
+                <div class="center spacing"><h6>Made for shits and gigs by <a href="http://www.willstall.com">willstall</a></h6></div>
+        </footer>  
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script> -->
+        <!-- <script>anchors.add();</script> -->
+        
+        <!-- <script>
+            // create a bunch of copies of our base element to help styling
+            let container = document.querySelector("#base");
+            let copy = document.querySelector("#copy");
+            let copies = 31;
+
+            for(let i = 0; i < copies; i++)
+            {
+                container.prepend(copy.cloneNode(true));
+            }
+        </script>         -->
+    </body>
+</html>
