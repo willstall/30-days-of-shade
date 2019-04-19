@@ -6,7 +6,8 @@ title: 30 Days - GLSL Gallery
 
 <div class="grid">
 
-    {% for shader in site.data.shaders | reverse %}
+    {% assign shaders = site.data.shaders | reverse %}
+    {% for shader in shaders %}
     <div id="copy" class="grid-item center spacing font-heavy">                
         <div class="shader">                
                 <a href={{ "/editor.html?file=" | append: shader.path|page.url|relative_url}}>
