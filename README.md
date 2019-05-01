@@ -6,7 +6,7 @@ An interactive demo of my 30 days of shaders in GLSL using GLSLCanvas. Yes, I kn
 - All the shaders: [/assets/shaders](https://github.com/willstall/30-days-of-shade/tree/master/assets/shaders)
 - All the videos: [/assets/videos](https://github.com/willstall/30-days-of-shade/tree/master/assets/videos)
 
-### Resources to get started on your own
+### Resources to learn from
 - [the book of shaders](http://thebookofshaders.com)
 - [iq articles](http://iquilezles.org/www/index.htm)
 - [alan zucconi tutorials](https://www.alanzucconi.com/tutorials/)
