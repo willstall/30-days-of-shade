@@ -24,6 +24,8 @@ An interactive demo of my 30 days of shaders in GLSL using GLSLCanvas. Yes, I kn
 - [Shader Shop by Tobyschachman](http://tobyschachman.com/Shadershop/editor/)
 - [iq Graph Toy](http://www.iquilezles.org/apps/graphtoy/)
 
+### Idea Generation
+- [Generative Word Bubbles](https://www.twinword.com/ideas/graph/)
 
 ## Recording your own shaders
 I use a combination of [FFMPEG](https://ffmpeg.org) and [glslViewer](https://github.com/patriciogonzalezvivo/glslViewer) in order to create my looping videos for both [instagram](https://www.instagram.com/willstall/) and [twitter](https://twitter.com/willstall). A sequence of images is created with glslViewer and then turned into a video using FFMPEG. To make things even easier I created a very basic shell script to automate all of this. Here it is!
