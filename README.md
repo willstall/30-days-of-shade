@@ -27,6 +27,7 @@ An interactive demo of my 30 days of shaders in GLSL using GLSLCanvas. Yes, I kn
 - [iq Graph Toy](http://www.iquilezles.org/apps/graphtoy/)
 
 ### Idea Generation
+- [Stupid Shader Idea Generator (I'm sorry)](https://willstall.github.io/shadiness/)
 - [Generative Word Bubbles](https://www.twinword.com/ideas/graph/)
 
 ### Just for fun
