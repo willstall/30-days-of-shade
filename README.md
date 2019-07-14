@@ -12,6 +12,7 @@ An interactive demo of my 30 days of shaders in GLSL using GLSLCanvas. Yes, I kn
 - [alan zucconi tutorials](https://www.alanzucconi.com/tutorials/)
 - [ronja's tutorials](https://www.ronja-tutorials.com)
 - [minion's art gif tutorials](https://www.patreon.com/minionsart)
+- [adam ferriss p5js examples](https://github.com/aferriss/p5jsShaderExamples)
 
 ### Shader Tools
 - [glslEditor](https://github.com/patriciogonzalezvivo/glslEditor)
