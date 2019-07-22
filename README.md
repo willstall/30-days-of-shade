@@ -1,4 +1,4 @@
-# [30-Days-of-Shade](https://willstall.github.io/30-days-of-shade/)
+# [30 Days of Shade](http://30daysofshade.com)
 An interactive demo of my 30 days of shaders in GLSL using GLSLCanvas. Yes, I know there are 31 days in January =)
 
 ## [Watch and Edit Here](https://willstall.github.io/30-days-of-shade/)
