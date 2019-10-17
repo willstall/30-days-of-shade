@@ -1,4 +1,4 @@
-# [30-Days-of-Shade](https://willstall.github.io/30-days-of-shade/)
+# [30 Days of Shade](http://30daysofshade.com)
 An interactive demo of my 30 days of shaders in GLSL using GLSLCanvas. Yes, I know there are 31 days in January =)
 
 ## [Watch and Edit Here](https://willstall.github.io/30-days-of-shade/)
@@ -6,11 +6,13 @@ An interactive demo of my 30 days of shaders in GLSL using GLSLCanvas. Yes, I kn
 - All the shaders: [/assets/shaders](https://github.com/willstall/30-days-of-shade/tree/master/assets/shaders)
 - All the videos: [/assets/videos](https://github.com/willstall/30-days-of-shade/tree/master/assets/videos)
 
-### Resources to get started on your own
+### Resources to learn from
 - [the book of shaders](http://thebookofshaders.com)
 - [iq articles](http://iquilezles.org/www/index.htm)
 - [alan zucconi tutorials](https://www.alanzucconi.com/tutorials/)
 - [ronja's tutorials](https://www.ronja-tutorials.com)
+- [minion's art gif tutorials](https://www.patreon.com/minionsart)
+- [adam ferriss p5js examples](https://github.com/aferriss/p5jsShaderExamples)
 
 ### Shader Tools
 - [glslEditor](https://github.com/patriciogonzalezvivo/glslEditor)
@@ -21,11 +23,16 @@ An interactive demo of my 30 days of shaders in GLSL using GLSLCanvas. Yes, I kn
 ### Math Tools
 - [Math as Code](https://github.com/Jam3/math-as-code)
 - [Desmos Graphic Calculator](https://www.desmos.com/calculator)
+- [Quick Guide for Desmos Calculator](https://mathvault.ca/desmos-guide/)
 - [Shader Shop by Tobyschachman](http://tobyschachman.com/Shadershop/editor/)
 - [iq Graph Toy](http://www.iquilezles.org/apps/graphtoy/)
 
 ### Idea Generation
+- [Stupid Shader Idea Generator (I'm sorry)](https://willstall.github.io/shadiness/)
 - [Generative Word Bubbles](https://www.twinword.com/ideas/graph/)
+
+### Just for fun
+- [cpu vs gpu] (https://www.youtube.com/watch?time_continue=27&v=-P28LKWTzrI)
 
 ## Recording your own shaders
 I use a combination of [FFMPEG](https://ffmpeg.org) and [glslViewer](https://github.com/patriciogonzalezvivo/glslViewer) in order to create my looping videos for both [instagram](https://www.instagram.com/willstall/) and [twitter](https://twitter.com/willstall). A sequence of images is created with glslViewer and then turned into a video using FFMPEG. To make things even easier I created a very basic shell script to automate all of this. Here it is!
