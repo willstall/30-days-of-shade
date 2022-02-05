@@ -6,7 +6,7 @@ An interactive demo of my 30 days of shaders in GLSL using GLSLCanvas. Yes, I kn
 - All the shaders: [/assets/shaders](https://github.com/willstall/30-days-of-shade/tree/master/assets/shaders)
 - All the videos: [/assets/videos](https://github.com/willstall/30-days-of-shade/tree/master/assets/videos)
 
-### Resources to learn from
+### Resources to Learn From
 - [the book of shaders](http://thebookofshaders.com)
 - [iq articles](http://iquilezles.org/www/index.htm)
 - [alan zucconi tutorials](https://www.alanzucconi.com/tutorials/)
@@ -31,7 +31,7 @@ An interactive demo of my 30 days of shaders in GLSL using GLSLCanvas. Yes, I kn
 - [Stupid Shader Idea Generator (I'm sorry)](https://willstall.github.io/shadiness/)
 - [Generative Word Bubbles](https://www.twinword.com/ideas/graph/)
 
-### Just for fun
+### Just For Fun
 - [cpu vs gpu] (https://www.youtube.com/watch?time_continue=27&v=-P28LKWTzrI)
 
 ## Recording your own shaders
